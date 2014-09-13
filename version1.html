@@ -1,0 +1,254 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+
+    <style type="text/css">
+
+      .pageload-overlay {
+          position: fixed;
+          width: 100%;
+          height: 100%;
+          top: 0;
+          left: 0;
+          visibility: hidden;
+      }
+       
+      .pageload-overlay.show {
+          visibility: visible;
+      }
+       
+      .pageload-overlay svg {
+          position: absolute;
+          top: 0;
+          left: 0;
+      }
+       
+      .pageload-overlay svg path {
+          fill: #fff;
+      }
+
+      .body{
+        font-family: "HelveticaNeue-Light", "Helvetica Neue", "Helvetica";
+        margin-top:0;
+        margin-right:0;
+        margin-bottom:0;
+        margin-left:0;
+      }
+      .nav-bar{
+        position:fixed;
+        width:100%;
+        display:block;
+        background-color:#fff;
+        border-bottom:1px solid #aaa;
+      }
+      .nav-bar-text{
+        font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue";
+        width:900px;
+        margin-top:0;
+        margin-right:auto;
+        margin-bottom:0;
+        margin-left:auto;
+        padding-bottom:20px;padding-top:20px;
+      }
+      .floatleft{
+        float:left;
+      }
+
+      .parallax [class*="bg__"] {
+        height: 50vh;
+        background-attachment:fixed; /* position fixed */
+        background-size:cover; /* stretch to fit */
+      }
+
+      .parallax .bg__foo, .parallax .bg__test {
+        height: 100vh; /* percent of viewport occupied by bgparallax and bazz */
+      }
+
+      .parallax .bg__foo {
+        background-image: url(http://breather.com/images/room1.jpg);
+      }
+      .parallax .bg__bazz {
+        height:30vh;
+        background-image: url(http://www.invisionapp.com/assets/img/wallpapers/airbnb.jpg);
+      }
+      .parallax .bg__test {
+        background-image: url(http://www.masseriacisternella.it/wp-content/themes/cisternella_theme/img/bghome/masseriasalento1.jpg);
+      }
+
+      .titleone{
+        font-family:"HelveticaNeue-Light","Helvetica Neue","Helvetica";
+        font-size: 45pt;
+        color: #333;
+        text-align:center;
+        
+        width:80%;
+        
+        background-color:rgba(255,255,255,0.8);
+        height:150px;
+        
+        margin:-180px auto 0 auto;
+      }
+
+      .container {
+        width: 600px; /* width of text div */
+        margin: 0 auto; /* equiv to margin-left:auto; margin-right:auto;*/
+      }
+
+      #map-canvas {
+        width:100%;
+        height:50vh;
+      }
+
+    </style>
+
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+    <script type="text/javascript">
+    function initialize() {
+      var myLatlng = new google.maps.LatLng(37.545983, -122.298363);
+      var mapOptions = {
+        scrollwheel: false,
+        zoom: 16,
+        center: myLatlng,
+        mapTypeControl: true,
+        mapTypeControlOptions: {
+            style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
+            position: google.maps.ControlPosition.BOTTOM_CENTER
+        },
+        panControl: true,
+        panControlOptions: {
+            position: google.maps.ControlPosition.TOP_RIGHT
+        },
+        zoomControl: true,
+        zoomControlOptions: {
+            style: google.maps.ZoomControlStyle.LARGE,
+            position: google.maps.ControlPosition.LEFT_CENTER
+        },
+        scaleControl: true,
+        streetViewControl: true,
+        streetViewControlOptions: {
+            position: google.maps.ControlPosition.LEFT_TOP
+        }
+      }
+
+      var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+      var contentString = '<div id="content">'+
+          '<div id="siteNotice">'+
+          '</div>'+
+          '<h1 id="firstHeading" class="firstHeading">The Nueva School</h1>'+
+          '<div id="bodyContent">'+
+          '<p><b>NUS</b>, also referred to as <b>Nueva Upper School</b>, is a large ' +
+          'sandstone rock formation in the southern part of the '+
+          'Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) '+
+          'south west of the nearest large town, Alice Springs; 450&#160;km '+
+          '(280&#160;mi) by road. Kata Tjuta and Uluru are the two major '+
+          'features of the Uluru - Kata Tjuta National Park. Uluru is '+
+          'sacred to the Pitjantjatjara and Yankunytjatjara, the '+
+          'Aboriginal people of the area. It has many springs, waterholes, '+
+          'rock caves and ancient paintings. Uluru is listed as a World '+
+          'Heritage Site.</p>'+
+          '<p>Attribution: The Nueva School, <a href="http://nuevaschool.org/" target="_blank">'+
+          'http://nuevaschool.org/</a> '+
+          '</div>'+
+          '</div>';
+
+      var infowindow = new google.maps.InfoWindow({
+          content: contentString
+      });
+
+      var marker = new google.maps.Marker({
+          position: myLatlng,
+          map: map,
+          title: "The Nueva Upper School"
+      });
+
+      google.maps.event.addListener(marker, 'click', function() {
+        infowindow.open(map,marker);
+      });
+    }
+    google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+  </head>
+<body class="body">
+  <div class="nav-bar">
+    <div class="nav-bar-text">
+    <nav>
+      <div align="right">
+      <span class="floatleft"><a href="http://www.rre.com/" target="_blank"><img src ="http://www.rre.com/images/logo.png" alt="RRE temp logo" /></a></span>
+      <div style="height:12px"></div>
+      <a href="http://tinyurl.com/jaklink">Tour</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <a href="http://tinyurl.com/jaklink">Customers</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <a href="http://tinyurl.com/jaklink">Features</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <a href="http://tinyurl.com/jaklink">Team</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <a href="http://tinyurl.com/jaklink">Blog</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <a href="http://tinyurl.com/jaklink">Sign Up Free</a>
+      </div>
+    </nav>
+    </div>
+  </div>
+
+
+  <div class="parallax">
+    <div class="bg__foo"></div>
+  </div>
+
+  <div class="titleone">
+  Ancestor creative<br>Fluid design, simple solutions
+  </div>
+
+<br><br><br><br><br><br>
+
+  <div class="container">
+  <div style="text-align:center;"><img src="/Users/jacmccl/Downloads/0e589f4.jpg" alt="Ari" /><img src="/Users/jacmccl/Downloads/03aab2e.jpg" alt="JM" /><img src="/Users/jacmccl/Downloads/1857d01.jpg" alt="OM" /></div>
+  <br><br>
+  <h1 style="text-align:center;">Innovation and simple solutions</h1>
+    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+    <br>
+    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+    <br>
+  </div>
+
+  <div class="parallax">
+  <div class="bg__bazz"></div>
+  </div>
+
+  <div class="container">
+  <h1 style="text-align:center;">Fluidity, it is. - Siddhartha</h1>
+    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+  </div>
+
+  <div class="parallax">
+  <div class="bg__bazz"></div>
+  </div>
+
+  <div class="container">
+  <br><br>
+  <h1 style="text-align:center;">Company bio:</h1>
+    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+    <br>
+    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+    <br>
+  </div>
+
+  <div class="parallax">
+  <div class="bg__test"></div>
+  </div>
+
+  <div class="container">
+  <h1 style="text-align:center;">Feel free to contact us for information!</h1>
+    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+    <br>
+    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+  </div>
+
+  <div id="map-canvas"></div>
+
+  <div class="container">
+  <h1 style="text-align:center;">Contact us.</h1>
+    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+  </div>
+
+</body>
+</html>
